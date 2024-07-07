@@ -1,29 +1,47 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
-import React from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams from react-router-dom
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Assuming you use React Router for navigation
 
-const ProductPage = () => {
-  const { id } = useParams(); // Get the product id from URL params
+const ProductPage = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
 
-  // Fetch product details based on id from your data source (e.g., API or local data)
-  // Example usage with static data:
-  const product = {
-    id: id,
-    name: `Product ${id}`,
-    rating: 4.5,
-    category: 'Sample Category',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    // Add more fields as needed
+  const handleIncreaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleAddToCart = () => {
+    // Implement logic to add product to cart
+    console.log(`Added ${quantity} ${product.name} to cart`);
+  };
+
+  const handleShopNow = () => {
+    // Implement logic to proceed directly to checkout or shopping flow
+    console.log(`Shop now for ${product.name}`);
   };
 
   return (
     <div className="product-page">
-      <h2>{product.name}</h2>
-      <p>Rating: {product.rating}</p>
-      <p>Category: {product.category}</p>
-      <p>Description: {product.description}</p>
-      {/* Add more details as needed */}
+      <div className="product-images">
+        <img src={product.image} alt={product.name} className="main-image" />
+        <div className="additional-images">
+          {product.additionalImages.map((img, index) => (
+            <img key={index} src={img} alt={`${product.name} ${index + 1}`} className="additional-image" />
+          ))}
+        </div>
+      </div>
+      <div className="product-details">
+        <h2>{product.name}</h2>
+        <p>Price: ${product.price}</p>
+        <div className="quantity-controls">
+          <button onClick={handleIncreaseQuantity}>+</button>
+          <span>{quantity}</span>
+          <button>-</button>
+        </div>
+        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button onClick={handleShopNow}>Shop Now</button>
+      </div>
     </div>
   );
 };

@@ -69,18 +69,41 @@ body {
 }
 
 .product-card {
-  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
+  border: 2px solid yellow; /* Yellow border around each product card */
+  border-radius: 10px;
   margin: 10px;
+  width: 200px; /* Adjust width for medium size */
   text-align: center;
-  width: calc(33.333% - 20px);
-  box-sizing: border-box;
+  text-decoration: none;
+  color: black; /* Adjust text color as needed */
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
+.product-card:hover {
+  border-color: #E5B80B /* Example: Change border color on hover */
 }
+
+.product-image img {
+  width: 100%; /* Ensure image fills its container */
+}
+
+.product-details {
+  padding: 10px;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.product-rating {
+  font-size: 14px;
+  color: gray;
+}
+
 
 .product-details {
   margin-top: 10px;
@@ -116,4 +139,51 @@ body {
   color: white;
   border: none;
   cursor: pointer;
+}
+/* src/index.css */
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  width: 150px; /* Adjust size as needed */
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.footer-section {
+  margin-right: 20px; /* Adjust spacing between sections */
+}
+
+.footer-section h4 {
+  font-size: 1rem;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-payment {
+  text-align: center;
+}
+
+.payment-icons img {
+  width: 50px; /* Adjust size of payment method logos */
+  margin: 0 5px;
 }
