@@ -13,7 +13,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: yellow;
+  background-color: #E5B80B
 }
 
 .logo img {
@@ -23,7 +23,7 @@ body {
 .nav-links a {
   margin: 0 10px;
   text-decoration: none;
-  color: black;
+  color: #0D0D0DEB;
   font-weight: bold;
 }
 
